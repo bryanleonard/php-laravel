@@ -1,6 +1,6 @@
 https://app.pluralsight.com/library/courses/laravel-php-framework-getting-started-the-basics/table-of-contents
 
-Start with 2 - A quick into to Artisan CLI
+Start with 5 - Handling Req and Res
 
 
 

@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Laravel for Winners</title>
+	<title>ADMIN Section - Laravel for Winners</title>
 
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Arizonia">
 	
@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	@include('partials._header')
+	@include('partials._admin-header')
 
 	<main class="container">
 		@yield('content')
