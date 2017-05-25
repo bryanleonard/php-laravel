@@ -1,7 +1,8 @@
 https://app.pluralsight.com/library/courses/laravel-php-framework-getting-started-the-basics/table-of-contents
 
-Start with 5 - Handling Req and Res
+Start with 6 - Demo: Creating the Post Controller
 
+https://app.pluralsight.com/player?course=laravel-php-framework-getting-started-the-basics&author=max-schwarzmueller&name=laravel-php-framework-getting-started-the-basics-m5&clip=3&mode=live
 
 
 
