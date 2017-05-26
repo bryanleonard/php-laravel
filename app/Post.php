@@ -10,17 +10,17 @@ class Post
 		if (!$session->has('posts')) {
 			$this->createDummyData($session);
 		}
-		return $session->get('posts') ;
+		return $session->get('posts');
 	}
 
 	private function createDummyData($session) 
 	{
 		$posts = [
 			[
-				'title' => 'Learning Laravel - Dummy',
-				'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quasi laboriosam sapiente amet rem alias soluta, corporis commodi atque ut quis velit dolorem! Molestiae distinctio obcaecati quibusdam dignissimos, maiores fugit.</p>
-				<p>Quo tempore corporis qui consequatur aperiam sed ullam. Earum nemo quas ipsum repellendus unde magnam debitis dolor laborum iure, vel, ullam saepe aliquam ab fugit tenetur, fugiat consequuntur explicabo dolores.</p>
-				<p>Ex culpa provident eos expedita ut, commodi atque. Distinctio doloribus, ratione est tempora iure esse quaerat officia earum ab quidem exercitationem inventore sunt cum at voluptas consectetur quas iusto aut!</p>
+				'title' => 'Learning Laravel',
+				'content' => '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure quasi laboriosam sapiente amet rem alias soluta, corporis commodi atque ut quis velit dolorem! Molestiae distinctio obcaecati quibusdam dignissimos, maiores fugit.
+				Quo tempore corporis qui consequatur aperiam sed ullam. Earum nemo quas ipsum repellendus unde magnam debitis dolor laborum iure, vel, ullam saepe aliquam ab fugit tenetur, fugiat consequuntur explicabo dolores.
+				Ex culpa provident eos expedita ut, commodi atque. Distinctio doloribus, ratione est tempora iure esse quaerat officia earum ab quidem exercitationem inventore sunt cum at voluptas consectetur quas iusto aut!</p>
 				<p>Temporibus dolorum voluptatum necessitatibus dolore quibusdam cumque sint voluptas aliquid dolorem ut blanditiis iure distinctio fugiat tenetur sequi laborum recusandae, voluptatibus iusto sit impedit modi, qui reprehenderit. Corrupti itaque, sed?</p>
 				<p>Perspiciatis iure at hic, repellat voluptatum libero, vitae esse omnis odit, qui nostrum voluptatem, dolore voluptates praesentium. Earum error, quod. Iste voluptates blanditiis quisquam velit, ex debitis natus doloremque vel.</p>
 				<p>Iste, officia minus! Obcaecati modi aut tenetur praesentium aliquid tempora, quidem voluptates corporis alias, quibusdam autem commodi odio vel pariatur ipsum dolor? Dolores enim minima blanditiis molestias recusandae quisquam ullam.</p>
@@ -42,7 +42,7 @@ class Post
 			]
 		];
 
-		$session->put('posts', $posts)
+		$session->put('posts', $posts);
 	}
 }
 
