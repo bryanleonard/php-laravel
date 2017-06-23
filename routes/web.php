@@ -16,7 +16,12 @@
 // })->name('blog.index');
 
 
-Route::get('/', 'PostController@getIndex')->name('blog.index');
+// Route::get('/', 'PostController@getIndex')->name('blog.index');
+// A better way to say the above
+Route::get('/', [
+	'uses' => 'PostController@getIndex',
+	'as' => 'blog.index'
+]);
 
 Route::get('post/{id}', function($id) {
 
