@@ -39,21 +39,29 @@ class PostController extends Controller
     public function getAdminEdit(Store $session, $id)
     {
     	$post = new Post();
-    	$post = $post->get($session, $id);
+    	$post = $post->getPost($session, $id);
     	return view('admin.edit', ['post' => $post, 'postId' => $id]);
     }
 
     public function postAdminCreate()
     {
+        $this->validate($request, [
+            'title' => 'required|min:5',
+            'content' => 'required|min:10'
+        ]);
         $post = new Post();
         $post->addPost($session, $request->input('title'), $request->input('content'));
-        return redirect().>route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
+        return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
     }
 
     public function postAdminUpdate(Store $session, Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|min:5',
+            'content' => 'required|min:10'
+        ]);
         $post = new Post();
         $post->editPost($session, $request->input('id'), $request->input('title'), $request->input('content'));
-        return redirect()->route('admin.index')->with('info', 'Post edited, new Title is: ' . $request->input('title'));
+        return redirect()->route('admin.index')->with('info', 'Post edited, title is: ' . $request->input('title'));
     }
 }
