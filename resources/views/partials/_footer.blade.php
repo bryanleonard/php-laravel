@@ -1,3 +1,3 @@
 <footer class="container footer">
-	<p>© 2017 This is a bunch of nonsense Inc.</p>
+	<p>© 2017 ManyApps Inc.</p>
 </footer>

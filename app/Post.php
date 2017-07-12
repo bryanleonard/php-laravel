@@ -1,57 +1,54 @@
 <?php
 
+//Basic fetching data (select) options
+// $posts = Post::where('title', '=' 'Title')->get();
+// $post = Post::where('title', '=', 'Title')->first();
+// $posts = Post::all();
+// $post = Post:find(10); // get by ID shorthand
+
+
+//Basic updating
+// $post = Post::where('title', '=', 'Title')->first();
+// $post->title = 'New Title';
+// $post->save();
+
+//multi update where criteria is met with multiple db records
+// $post = Post::where('title', '=', 'Title')->update(['title' => 'New Title']);
+
+// Deleting content (hard delete)
+// Research soft deleting: htp://laravel.com/docs/5.3/eloquent#soft-deleting
+// $post = Post::where('title', '=', 'Title')->first();
+// $post->delete();
+// multi delete
+// $post = Post::where('title', '=', 'Title')->delete();
+
+//Collections of models are returned
+// http://laravel.com/docs/5.3/collections
+// some methods:
+// filter(), sort(), each(), ...();
+
+// Query builder
+// http://laravel.com/docs/5.3/queries
+
 namespace App;
+use Illuminate\Database\Eloquent\Model;
 
-class Post
+class Post extends Model
 {
-	// could also use a facade instead of fn arg
-	public function getPosts($session)
+	protected $fillable = ['title', 'content'];
+
+
+	public function likes()
 	{
-		if (!$session->has('posts')) {
-			$this->createDummyData($session);
-		}
-		return $session->get('posts');
+		// second arg in return is optional, default (her, post_id) is assumed
+		return $this->hasMany('App\Like', 'post_id');
 	}
 
-	public function getPost($session, $id) 
+	public function tags()
 	{
-		if (!$session->has('posts')) {
-			$this->createDummyData();
-		}
-		return $session->get('posts')[$id];
+		// second and third args in return are the default, leaving here for demo since that's how you'd override it
+		return $this->belongsToMany('App\Tag', 'post_tag', 'tag_id')->withTimestamps();
 	}
 
-	public function addPost($session, $title, $content) 
-	{
-		if (!$session->has('posts')) {
-			$this->createDummyData();
-		}
-		$posts = $session->get('posts');
-		array_push($posts, ['title' => $title, 'content' => $content]);
-		$session->put('posts', $posts);
-	}
-
-	public function editPost($session, $id, $title, $content) 
-	{
-		$posts = $session->get('posts');
-		$posts[$id] = ['title' => $title, 'content' => $content];
-		$session->put('posts', $posts);
-	}
-
-	private function createDummyData($session) 
-	{
-		$posts = [
-			[
-				'title' => 'Learning Laravel',
-				'content' => 'This blog post will get you right on track with Laravel!'
-			],
-			[
-				'title' => 'Something else about learning',
-				'content' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit delectus sit odio nesciunt, aut cumque omnis deleniti cum inventore natus commodi culpa laborum dolores quo earum illo impedit maiores. Quia.'
-			]
-		];
-
-		$session->put('posts', $posts);
-	}
 }
 

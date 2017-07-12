@@ -1,7 +1,30 @@
+a,
+a:link,
+a:visited {
+	color: #f6465f;
+}
+
+a:active,
+a:hover,
+a:focused {
+	color: #ca394e;
+}
 .quote{
-	font: 400 72px "Arizonia", Helvetica, sans-serif;
+	font: 400 5.25rem "Arizonia", Helvetica, sans-serif;
 	color: #f6465f;
 	text-align:center;
+	line-height: .5;
+	margin-bottom: 2rem;
+	margin-top: 1.5rem;
+}
+
+.quote-small {
+	text-align: center;
+	color: #666;
+	font-weight: 600;
+	display: block;
+	font-size: 1.2rem;
+	margin-bottom: 1.5rem;
 }
 
 .post-title {
@@ -23,3 +46,16 @@
 .container { 
 	max-width: 500px;
 }
+
+.btn-yolo {
+	background-color: #f6465f;
+	border-color: #ca394e;
+	color: #fff;;
+}
+
+.btn-yolo:hover,
+.btn-yolo:active {
+	background-color: #ca394e;
+	border-color: #982A39;
+	color: #fff;;
+} 

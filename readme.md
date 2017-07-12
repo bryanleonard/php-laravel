@@ -1,10 +1,4 @@
-https://app.pluralsight.com/library/courses/laravel-php-framework-getting-started-the-basics/table-of-contents
-
-Start with 6 - How Laravel finds the controller
-
-https://app.pluralsight.com/player?course=laravel-php-framework-getting-started-the-basics&author=max-schwarzmueller&name=laravel-php-framework-getting-started-the-basics-m5&clip=3&mode=live
-
-
+Section 5
 
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
