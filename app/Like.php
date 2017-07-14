@@ -4,7 +4,7 @@
 // $likes = Post::find(10)->likes; //Gets post and likes
 // $likes = Post::find(10)->likes()->orderBy(...)->get(); // use like a method and chain
 
-// Inser Data
+// Insert Data
 // $post = Post::find(10);
 // $like = new Like();
 // $post->likes()->save($like);

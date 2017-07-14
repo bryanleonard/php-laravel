@@ -47,7 +47,7 @@ class Post extends Model
 	public function tags()
 	{
 		// second and third args in return are the default, leaving here for demo since that's how you'd override it
-		return $this->belongsToMany('App\Tag', 'post_tag', 'tag_id')->withTimestamps();
+		return $this->belongsToMany('App\Tag', 'post_tag', 'post_id', 'tag_id')->withTimestamps();
 	}
 
 }

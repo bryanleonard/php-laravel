@@ -47,6 +47,13 @@ a:focused {
 	max-width: 500px;
 }
 
+a.btn,
+a.btn:hover,
+a.btn:active,
+a.btn:visited {
+	color: #fff;
+}
+
 .btn-yolo {
 	background-color: #f6465f;
 	border-color: #ca394e;

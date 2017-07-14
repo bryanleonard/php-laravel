@@ -21,7 +21,6 @@ class PostController extends Controller
 		// $posts = Post::all();
 		$posts = Post::orderBy('title', 'asc')->get();
 		return view('admin.index', ['posts' => $posts]);
-
 	}
 
 	public function getPost($id)
@@ -43,13 +42,15 @@ class PostController extends Controller
 
 	public function getAdminCreate()
 	{
-		return view('admin.create');
+		$tags = Tag::all();
+		return view('admin.create', ['tags' => $tags]);
 	}
 
 	public function getAdminEdit($id)
 	{
 		$post = Post::find($id);
-		return view('admin.edit', ['post' => $post, 'postId' => $id]);
+		$tags = Tag::all();
+		return view('admin.edit', ['post' => $post, 'postId' => $id, 'tags' => $tags]);
 	}
 
 	public function postAdminCreate(Request $request)
@@ -64,8 +65,10 @@ class PostController extends Controller
 			'content' => $request->input('content')
 		]);
 		$post->save();
+		$post->tags()->attach($request->input('tags') === null ? [] : $request->input('tags'));
 		
-		return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
+		// return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
+		return redirect()->route('admin.index')->with('info', 'The post has been created.');
 	}
 
 	public function postAdminUpdate(Request $request)
@@ -78,6 +81,11 @@ class PostController extends Controller
 		$post->title = $request->input('title');
 		$post->content = $request->input('content');
 		$post->save();
+		// remove all tags first then attach the updated tags
+		//$post->tags()->detach(); 
+		//$post->tags()->attach($request->input('tags')) === null ? [] : $request->input('tags'));
+		//or sync, which is more efficient
+		$post->tags()->sync($request->input('tags') === null ? [] : $request->input('tags'));
 		return redirect()->route('admin.index')->with('info', 'The post has been updated.');
 		// return redirect()->route('admin.index')->with('info', 'Post edited, title is: ' . $request->input('title'));
 	}
@@ -86,6 +94,7 @@ class PostController extends Controller
 	{
 		$post = Post::find($id);
 		$post->likes()->delete();
+		$post->tags()->detach();
 		$post->delete();
 		return redirect()->route('admin.index')->with('info', 'Post deleted.');
 	}

@@ -12,8 +12,25 @@
 		<div class="row">
 			<div class="col-md-12 text-center">
 				<h1 class="post-title">{{ $post->title }}</h1>
+				<?php
+					$tags = $post->tags;
+				?>
+				{{-- 
+				@foreach ($tags as $tag)
+					- {{$tag->name}} - 
+				@endforeach
+				--}}
+
+				@if (count($post->tags))
+					<p>
+						@for ($i=0; $i < count($post->tags); $i++)
+							{{$tags[$i]->name}}@if ($i < count($post->tags)-1), @endif
+						@endfor
+					</p>
+				@endif
+
 				<p>{!! $post->content !!}</p>
-				<p><a href="{{ route('blog.post', ['id' => $post->id]) }}">Read more...</a></p>
+				<a href="{{ route('blog.post', ['id' => $post->id]) }}">Read more...</a></p>
 			</div>
 		</div>
 		<hr>
