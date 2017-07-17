@@ -12,14 +12,16 @@ class PostController extends Controller
 	public function getIndex()
 	{
 		// $posts = Post::all();
-		$posts = Post::orderBy('created_at', 'desc')->get();
+		// $posts = Post::orderBy('created_at', 'desc')->get();
+		$posts = Post::orderBy('created_at', 'desc')->paginate(3);
 		return view('blog.index', ['posts' => $posts]);
 	}
 
 	public function getAdminIndex() 
 	{
 		// $posts = Post::all();
-		$posts = Post::orderBy('title', 'asc')->get();
+		// $posts = Post::orderBy('title', 'asc')->get();
+		$posts = Post::orderBy('title', 'asc')->paginate(3);
 		return view('admin.index', ['posts' => $posts]);
 	}
 

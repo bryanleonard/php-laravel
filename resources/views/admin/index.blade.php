@@ -22,9 +22,16 @@
 	@foreach($posts as $post)
 		<div class="row">
 			<div class="col-md-12">
-				<p><strong>{{$post->title}}</strong> 
-				<a href="{{ route('admin.edit', ['id' => $post->id]) }}">Edit</a> | <a href="{{ route('admin.delete', ['id' => $post->id]) }}">Delete</a></p>
+				<p class="post-p"><strong>{{$post->title}}</strong> <br>
+				{{ str_limit($post->content, $limit = 100, $end = '...') }}
+				&nbsp; <br><a href="{{ route('admin.edit', ['id' => $post->id]) }}">Edit</a>&nbsp; | &nbsp;<a href="{{ route('admin.delete', ['id' => $post->id]) }}">Delete</a></p>
 			</div>
 		</div>
 	@endforeach
+
+	<div class="row">
+		<div class="col-md-12 text-center">
+			{{ $posts->links() }}
+		</div>
+	</div>
 @endsection

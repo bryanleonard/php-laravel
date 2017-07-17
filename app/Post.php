@@ -30,12 +30,35 @@
 // Query builder
 // http://laravel.com/docs/5.3/queries
 
+
+
+
+
 namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
 	protected $fillable = ['title', 'content'];
+
+	// Define a mutator (change data before going to DB)
+	// Example: for title to be in lowercase when saving it
+	// name schema is a pattern "set"[The field you want to change]Attribute
+	// if field were first_title, change it to FirstTitle
+	public function setTitleAttribute($value) 
+	{
+		// remember title is db field name
+		// $this->attributes['title'] = strtolower($value);
+		$this->attributes['title'] = $value;
+	}
+
+	// Define an accessor (change data after coming out of the DB)
+	// name schema is similar to mutator. Get instead of Set though
+	// have to return something
+	public function getTitleAttribute($value)
+	{
+		return strtoupper($value . '!') ;
+	}
 
 
 	public function likes()

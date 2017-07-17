@@ -13,7 +13,7 @@ a:focused {
 	font: 400 5.25rem "Arizonia", Helvetica, sans-serif;
 	color: #f6465f;
 	text-align:center;
-	line-height: .5;
+	line-height: .75;
 	margin-bottom: 2rem;
 	margin-top: 1.5rem;
 }
@@ -30,6 +30,9 @@ a:focused {
 .post-title {
 	color: #f6465f;
 }
+ .post-p {
+ 	margin-bottom: 1.75rem;
+ }
 
 .footer {
 	margin-top: 4rem;
@@ -66,3 +69,25 @@ a.btn:visited {
 	border-color: #982A39;
 	color: #fff;;
 } 
+
+.pagination > .active > a, 
+.pagination > .active > a:focus, 
+.pagination > .active > a:hover, 
+.pagination > .active > span, 
+.pagination > .active > span:focus, 
+.pagination > .active > span:hover {
+	background-color: #ca394e;
+	border-color: #ca394e;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+	color: #ca394e;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus, 
+.pagination > li > span:hover {
+	color: #ca394e;
+}
