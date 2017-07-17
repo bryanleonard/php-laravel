@@ -1,3 +1,61 @@
+Laravel CLI examples
+
+cd into project folder
+
+The Basics
+
+Composer create-project larvel/laravel --prefer-dist  (if already in desired dir)
+Composer create-project larvel/laravel [folder] (designate new folder)
+// install Laravel into a dir, will need to install Composer first
+// getcomposer.org/download
+// larvel.com/docs
+// Getting Started / Setting Up a Laravel Project
+
+
+Models and Data
+
+php artisan make:model [Tag] -m
+// creates new model, gives it a name, creates associated 
+// migration files inside app/ and database/migrations
+
+
+php artisan make:migration [file_name]
+// creates migration file, i.e., create_tags_table
+// inside of database/migrations
+
+
+php artisan migrate
+// runs the migrations
+
+
+php artisan migrate:rollback 
+// Rolls back latest migration
+
+
+php artisan migrate:reset
+// reset all migrations
+
+
+php artisan migrate:refresh
+// roll back all and re-run
+
+
+php artisan make:seed [PostTableSeeder] (ModelTableSeeder)
+// create seed for the database [ModelNameTableNameSeeder]
+// inside database/seeds
+
+
+php artisan db:seed
+// seed the database with all seeders
+
+
+php artisan migrate --seed
+// run migrations and seeds at the same time
+
+
+php artisan vendor:publish --tag=laravel-pagination
+// adds view files under vendor folder with the pagination code output for customization
+// should work with other vendor files
 
 
 
