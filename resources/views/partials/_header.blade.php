@@ -16,14 +16,14 @@
 	  <ul class="nav navbar-nav">
 		<li><a href="{{ route('blog.index') }}">Blog <span class="sr-only">(current)</span></a></li>
 		<li><a href="{{ route('misc.about') }}">About</a></li>
-		@if (!Auth::guest())
+		@if (Auth::check())
 			<li><a href="{{ route('admin.index') }}">Posts</a></li>
 		@endif
 	 </ul>
 
 	 <ul class="nav navbar-nav navbar-right">
 		<!-- Authentication Links -->
-		@if (Auth::guest())
+		@if (!Auth::check())
 			<li><a href="{{ route('login') }}">Login</a></li>
 			<li><a href="{{ route('register') }}">Register</a></li>
 		@else

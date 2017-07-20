@@ -25,6 +25,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // Custom gate, $user is automatically sent, $post is our responsibility
+        Gate::define('manipulate-post', function($user, $post) {
+            return $user->id == $post->user_id;
+        });
     }
 }

@@ -74,4 +74,8 @@ Route::group(['prefix' => 'admin'], function() {
 
 Auth::routes(); // login, out, and register
 
-
+// Custom route overrides should follow out of the box ones in order to be used
+Route::post('login', [
+	'uses' => 'SigninController@signin',
+	'as' => 'auth.signin'
+]);
