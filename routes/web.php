@@ -71,6 +71,7 @@ Route::group(['prefix' => 'admin'], function() {
 	]);
 
 });
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes(); // login, out, and register
+
+
