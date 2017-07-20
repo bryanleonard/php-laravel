@@ -57,9 +57,9 @@ class Post extends Model
 	// have to return something
 	public function getTitleAttribute($value)
 	{
-		return strtoupper($value . '!') ;
+		// return strtoupper($value . '!') ;
+		return ucfirst($value);
 	}
-
 
 	public function likes()
 	{
@@ -71,6 +71,11 @@ class Post extends Model
 	{
 		// second and third args in return are the default, leaving here for demo since that's how you'd override it
 		return $this->belongsToMany('App\Tag', 'post_tag', 'post_id', 'tag_id')->withTimestamps();
+	}
+
+	public function user()
+	{
+		return $this->belongsTo('App\User');
 	}
 
 }

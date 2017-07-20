@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Like;
 use App\Post;
 use App\Tag;
+use Auth;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -21,7 +22,8 @@ class PostController extends Controller
 	{
 		// $posts = Post::all();
 		// $posts = Post::orderBy('title', 'asc')->get();
-		$posts = Post::orderBy('title', 'asc')->paginate(3);
+		// $posts = Post::orderBy('title', 'asc')->paginate(3);
+		$posts = Post::orderBy('created_at', 'desc')->paginate(3);
 		return view('admin.index', ['posts' => $posts]);
 	}
 
@@ -66,7 +68,13 @@ class PostController extends Controller
 			'title' => $request->input('title'),
 			'content' => $request->input('content')
 		]);
-		$post->save();
+		$user = Auth::user(); // get currenlty logged in user
+
+		if (!$user) {
+			return redirect()->back(); // could also add a message
+		}
+		// $post->save(); // Regular way to save prior to user auth
+		$user->posts()->save($post);
 		$post->tags()->attach($request->input('tags') === null ? [] : $request->input('tags'));
 		
 		// return redirect()->route('admin.index')->with('info', 'Post created, Title is: ' . $request->input('title'));
