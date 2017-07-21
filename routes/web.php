@@ -37,12 +37,12 @@ Route::get('about', function() {
 	return view('misc.about');
 })->name('misc.about');
 
-
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function() {
 
 	Route::get('', [
 		'uses' => 'PostController@getAdminIndex',
 		'as' => 'admin.index'
+		// ,'middleware' => 'auth'
 	]);
 
 	Route::get('create', [
