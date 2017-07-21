@@ -1,3 +1,5 @@
 <footer class="container footer">
-	<p>© 2017 ManyApps Inc.</p>
+	<div class="col-md-12">
+		<p class="row">© 2017 ManyApps Inc.</p>
+	</div>
 </footer>

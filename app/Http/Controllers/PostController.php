@@ -9,7 +9,6 @@ use Auth;
 use Gate; // for custom gate
 use Illuminate\Http\Request;
 
-
 // General AUTH notes:
 // Try to authenticate user example
 // Auth::attempt(['email'=>$email, 'password'=>$password]);
@@ -72,7 +71,6 @@ class PostController extends Controller
 
 	public function getAdminEdit($id)
 	{
-		
 		if (!Auth::check()) {
 			return redirect()->back();
 		}

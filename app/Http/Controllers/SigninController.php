@@ -19,6 +19,7 @@ class SigninController extends Controller
 
     	// Note: password is a semi-protected variable and remember me is pre-installed with Auth.
     	// Little bit of black box voodoo
+        // $request->has('remember') is optional if you want that functionality
     	if (Auth::attempt([
 	    		'email' => $request->input('email'),
 	    		'password' => $request->input('password')

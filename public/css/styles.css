@@ -37,9 +37,13 @@ a:focused {
 .footer {
 	margin-top: 4rem;
 	margin-bottom: 2rem;;
-	border-top: 1px solid #e7e7e7;
 	padding-top: 1rem;
 	text-align: right;
+}
+
+.footer p {
+	border-top: 1px solid #e7e7e7;
+	padding-top: 1rem;
 }
 .navbar-brand {
 	font-family: "Arizonia", Helvetica, sans-serif;
@@ -53,8 +57,23 @@ a:focused {
 a.btn,
 a.btn:hover,
 a.btn:active,
-a.btn:visited {
+a.btn-yolo:visited {
 	color: #fff;
+}
+
+a.btn-link {
+	color: #f6465f !important;;
+}
+
+.btn-link:focus,
+.btn-link:hover {
+	color:  #f6465f;
+}
+
+.btn-link:focus,
+.btn-link:hover,
+.btn-yolo:active {
+	color: #982A39;
 }
 
 .btn-yolo {
@@ -64,7 +83,8 @@ a.btn:visited {
 }
 
 .btn-yolo:hover,
-.btn-yolo:active {
+.btn-yolo:active,
+.btn-yolo:focus {
 	background-color: #ca394e;
 	border-color: #982A39;
 	color: #fff;;
@@ -76,18 +96,18 @@ a.btn:visited {
 .pagination > .active > span, 
 .pagination > .active > span:focus, 
 .pagination > .active > span:hover {
-	background-color: #ca394e;
-	border-color: #ca394e;
+	background-color: #f6465f;
+	border-color: #f6465f;
 }
 
 .pagination > li > a,
 .pagination > li > span {
-	color: #ca394e;
+	color: #f6465f;
 }
 
 .pagination > li > a:focus,
 .pagination > li > a:hover,
 .pagination > li > span:focus, 
 .pagination > li > span:hover {
-	color: #ca394e;
+	color: #f6465f;
 }
